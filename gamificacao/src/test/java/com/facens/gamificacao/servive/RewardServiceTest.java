@@ -1,6 +1,7 @@
 package com.facens.gamificacao.servive;
 
 import com.facens.gamificacao.model.Student;
+import com.facens.gamificacao.service.RewardService;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
