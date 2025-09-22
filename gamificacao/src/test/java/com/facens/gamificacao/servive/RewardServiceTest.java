@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
-
+import java.util.Collections;
 
 public class RewardServiceTest {
 
@@ -36,5 +36,21 @@ public class RewardServiceTest {
         service.processMonthEnd(students);
 
         assertEquals(1, ana.getAvailableCourses(), "Aluno com 10 comentários mas não o mais ativo não deve receber curso extra");
+    }
+    
+    @Test
+    void dadoListaNula_quandoProcessaFimDeMes_entaoNaoDeveLancarExcecao() {
+        // Arrange
+        RewardService service = new RewardService();
+
+        assertDoesNotThrow(() -> service.processMonthEnd(null));
+    }
+    
+    @Test
+    void dadoListaVazia_quandoProcessaFimDeMes_entaoNaoDeveLancarExcecao() {
+        // Arrange
+        RewardService service = new RewardService();
+
+        assertDoesNotThrow(() -> service.processMonthEnd(Collections.emptyList()));
     }
 }
